@@ -91,6 +91,50 @@ $ vagrant@homestead:~/code/helxilfie-edu/laravel9$ composer require gsp/uploader
 
 ### 使用
 ```text
-composer require gsp/uploader
+1.composer require gsp/uploader
+2.php artisan vendor:publish
+3.配置config/uploader.php
+```
+```php
+<?php
+
+/**
+ * Created by PhpStorm.
+ * User: gsp
+ * Date: 2022/3/3
+ * Time: 14:43
+ */
+
+namespace App\Http\Controllers\V1\Auth;
+
+use Illuminate\Http\Request;
+use Gsp\Uploader\Uploader;
+use Gsp\Uploader\UploadFacade;
+
+class LoginController
+{
+
+    public function login(Request $request)
+    {
+        $config   = config('uploader');
+
+        // 通过 aliases[别名] 调用，因为这个别名指向的是facade，所以调用的时候通过 :: 符号调用
+//        $res = app('Uploader')::setConfig($config)->upload($request->file('file'));
+
+        //通过 provider 调用
+//        $res = app(Uploader::class)->setConfig($config)->upload($request->file('file'));
+
+        //通过 facade调用
+//        $res = UploadFacade::setConfig($config)->upload($request->file('file'));
+
+        //通过 实例化对象 调用
+        $uploader = new Uploader();
+        $uploader->setConfig($config);
+
+        $res = $uploader->upload($request->file('file'));
+
+        return response()->json(['code' => 1000, 'url' => $res]);
+    }
+}
 ```
 
