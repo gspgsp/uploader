@@ -2,7 +2,8 @@
 
 ## 运行环境要求
 
-- 基于laravel
+- laravel 5.6+
+- PHP 7.4+
 
 ### 开发过程
 1). 新建uploader文件：
