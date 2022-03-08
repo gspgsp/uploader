@@ -72,6 +72,23 @@ $obj->setConfig();
 composer.lock
 phpunit.xml
 ```
+7).本地项目测试使用
+```text
+
+$ cd laravel9
+$ vagrant@homestead:~/code/helxilfie-edu/laravel9$ composer config repositories.uploader path ../../uploader
+$ vagrant@homestead:~/code/helxilfie-edu/laravel9$ composer require gsp/uploader:*
+
+效果就是在laravel9项目的composer.json里面会有如下仓库：
+"repositories": {
+        "uploader": {
+            "type": "path",
+            "url": "../../uploader"
+        }
+    }
+```
+8).如果测试完了，就可以推到github上了
+
 ### 使用
 ```text
 composer require gsp/uploader
