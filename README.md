@@ -4,6 +4,7 @@
 
 - laravel 5.6+
 - PHP 7.4+
+- 必须laravel，因为调用了laravel的helper函数
 
 ### 开发过程
 1). 新建uploader文件：
