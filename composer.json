@@ -1,0 +1,36 @@
+{
+    "name": "gsp/uploader",
+    "description": "a package to improve upload experience",
+    "type": "library",
+    "license":"MIT",
+    "autoload": {
+        "psr-4": {
+            "Gsp\\Uploader\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "gsp",
+            "email": "guoshipengdss@gmail.com"
+        }
+    ],
+    "minimum-stability":"dev",
+    "require": {
+        "aliyuncs/oss-sdk-php": "^2.4",
+        "illuminate/support": "^9.3"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Gsp\\Uploader\\UploadServiceProvider"
+            ],
+            "aliases": {
+                "Uploader": "Gsp\\Uploader\\UploadFacade"
+            }
+        }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "10.0.x-dev",
+        "mockery/mockery": "^1.5"
+    }
+}
